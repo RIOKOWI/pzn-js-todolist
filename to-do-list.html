@@ -52,7 +52,12 @@
             }
         }
 
-        function addTodo(todo) {
+        function removeTodoList(index) {
+            todoList.splice(index, 1); // splice == menghapus (index ke berapa, hapus 1 saja)
+            todoListDisplay(); // tampilkan data baru
+        }
+
+        function addTodo(index, todo) {
             
                 const tr = document.createElement("tr"); // membuat element table row
                 const tdButton = document.createElement("td"); // membuat element table data untuk nantinya di isi button "kelar"
@@ -61,6 +66,9 @@
                 const buttonDone = document.createElement("input");  // membuat element input
                 buttonDone.type = "button"; // set type input
                 buttonDone.value = "Kelar"; // set value kelar
+                buttonDone.onclick = function () {
+                    removeTodoList(index)
+                } 
                 tdButton.appendChild(buttonDone); // memasukkan button input kelar ke tdButton
 
                 const tdTodo = document.createElement("td"); // membuat tabel data untuk value todo
@@ -83,7 +91,7 @@
                 const searchText = document.getElementById("search").value.toLowerCase(); // ambil value dari id input search dan convert ke lower case
 
                 if(todo.toLowerCase().includes(searchText)) { // jika kata todo(conevert ke lowercase) mengadung kata yang sama dengan variabel searchText
-                    addTodo(todo); // tampilkan todo nya
+                    addTodo(i, todo); // tampilkan todo nya
                 }
 
 

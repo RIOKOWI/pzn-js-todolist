@@ -25,7 +25,7 @@
     <table>
         <thead>
             <tr>
-                <th>filter</th>
+                <th>Filter</th>
                 <th><input type="text" name="search" id="search"></th>
             </tr>
         </thead>
@@ -52,12 +52,8 @@
             }
         }
 
-        function todoListDisplay () {
-            clearDisplay();
-
-            for (let i = 0; i < todoList.length; i++) { // membuat perulangan untuk display isi array todo list
-                const todo = todoList[i]; // ambil todo 1 per 1
-
+        function addTodo(todo) {
+            
                 const tr = document.createElement("tr"); // membuat element table row
                 const tdButton = document.createElement("td"); // membuat element table data untuk nantinya di isi button "kelar"
                 tr.appendChild(tdButton); // memasukkan tdButton ke tabel row dengan kosong
@@ -74,6 +70,16 @@
                 const todoListBody = document.getElementById("todoListBody"); // ambil id form todolistbody
                 todoListBody.appendChild(tr); // memasukkan table row ke element tabel body
                 
+            
+        }
+
+        function todoListDisplay () {
+            clearDisplay();
+
+            for (let i = 0; i < todoList.length; i++) { // membuat perulangan untuk display isi array todo list
+                const todo = todoList[i]; // ambil todo 1 per 1
+
+                addTodo(todo);
             }
         }
 
@@ -88,7 +94,20 @@
 
 
             todoListDisplay(); // panggil func untuk menampilkan todo list
+        };
+
+        const search = document.getElementById("search");
+        search.onchange = function () { // harus di klik lagi untuk search nya keluar
+            console.info("onchange"); 
         }
+        search.onkeydown = function () {
+            console.info("onkeydown");
+        }
+        search.onkeyup = function () {
+            console.info("onkeyup");
+        }
+
+
         todoListDisplay(); // panggil func untuk menampilkan todo list
     </script>
 </body>

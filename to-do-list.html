@@ -29,7 +29,7 @@
                 <th><input type="text" name="search" id="search"></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="todoListBody">
             <tr>
                 <td><input type="button" value="kelar"></td>
                 <td>Todo Desc</td>
@@ -40,6 +40,13 @@
 
     <script>
         const todoList = [];
+
+        function clearDisplay (){ // function untuk clear first child todo
+            const todoListBody = document.getElementById("todoListBody");
+            while(todoListBody.firstChild) {
+                todoListBody.removeChild(todoListBody.firstChild);
+            }
+        }
 
         document.forms['todoForm'].onsubmit = function (event) { // membuat event untuk id todoForm
             event.preventDefault(); // agar tidak otomatis submit

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="todoForm">
+        <table>
+            <tbody>
+                <tr>
+                    <td><label for="todo">Todo:</label></td>
+                    <td><input type="text" id="todo" name="todo"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Tambah"></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <h1>TodoList</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Filter</th>
+                <th><input type="text" name="search" id="search"></th>
+            </tr>
+        </thead>
+        <tbody id="todoListBody">
+            <tr>
+                <td><input type="button" value="Kelar"></td>
+                <td>Todo Desc</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <script src="scripts/todo.js"></script>
+</body>
+</html>

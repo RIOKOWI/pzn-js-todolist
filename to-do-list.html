@@ -48,6 +48,31 @@
             }
         }
 
+        function todoListDisplay () {
+            clearDisplay();
+
+            for (let i = 0; i < todoList.length; i++) { // membuat perulangan untuk display isi array todo list
+                const todo = todoList[i];
+
+                const tr = document.createElement("tr"); // membuat element table row
+                const tdButton = document.createElement("td"); // membuat element table data untuk nantinya di isi button "kelar"
+                tr.appendChild(tdButton); // memasukkan tdButton ke tabel row dengan kosong
+
+                const buttonDone = document.createElement("input");  // membuat element input
+                buttonDone.type = "button"; // set type input
+                buttonDone.value = "kelar"; // set value kelar
+                tdButton.appendChild(buttonDone); // memasukkan button input kelar ke tdButton
+
+                const tdTodo = document.createElement("td"); // membuat tabel data untuk value todo
+                tdTodo.textContent = todo; // menampilkan value todo dari array ke tabel data
+                tr.appendChild(tdTodo); // memasukkan value todo ke table row
+
+                const todoListBody = document.getElementById("todoListBody"); // ambil id form todolistbody
+                todoListBody.appendChild(tr); // memasukkan table row ke element tabel body
+                
+            }
+        }
+
         document.forms['todoForm'].onsubmit = function (event) { // membuat event untuk id todoForm
             event.preventDefault(); // agar tidak otomatis submit
 
@@ -56,6 +81,9 @@
             document.forms['todoForm'].reset(); // reset inputan form saat user tekan Tambah
 
             console.info(todoList); // debugging/cek data masuk ke array atau tidak
+
+
+            todoListDisplay(); // panggil func untuk menampilkan todo list
         }
     </script>
 </body>

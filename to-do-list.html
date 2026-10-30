@@ -39,7 +39,17 @@
 
 
     <script>
+        const todoList = [];
 
+        document.forms['todoForm'].onsubmit = function (event) { // membuat event untuk id todoForm
+            event.preventDefault(); // agar tidak otomatis submit
+
+            const todo = document.forms['todoForm']['todo'].value; // ambil value dari input form
+            todoList.push(todo); // memasukan value ke array dari variable todoList
+            document.forms['todoForm'].reset(); // reset inputan form saat user tekan Tambah
+
+            console.info(todoList); // debugging/cek data masuk ke array atau tidak
+        }
     </script>
 </body>
 </html>
